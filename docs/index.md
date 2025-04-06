@@ -23,13 +23,17 @@ Various, but the ones I feel the most familiar with are: <ul>
 <b>The Cloud:</b>
 <ul> 
     <li>Azure</li> 
-    <li>Sentinel</li> 
-    <li>Logic Apps</li> 
+    <ul>
+        <li>Sentinel</li> 
+        <li>Logic Apps</li> 
+    </ul>
     <li>AWS</li> 
-    <li>EKS</li> 
-    <li>EC2</li> 
-    <li>Lambda</li> 
-    <li>Security groups, networking, logs, etc</li> 
+    <ul>
+        <li>EKS</li> 
+        <li>EC2</li> 
+        <li>Lambda</li> 
+        <li>Security groups, networking, logs, etc</li> 
+    </ul>
 </ul>
 
 <b>Processes:</b>
