@@ -1,4 +1,14 @@
 site_name: FathomlessFunction
+site_description: A website to express my learning journey in the world of tech
 site_url: https://fathomlessfunction.github.io/fathomlessfunction
 theme:
   name: material
+
+plugins:
+  - search
+  - blog
+
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
