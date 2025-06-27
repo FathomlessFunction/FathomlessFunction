@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Redirect</title>
+    <!-- if we want the redirect page to look pretty -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,14 +77,8 @@
             'https://www.wikipedia.org',
             'https://www.github.com',
             'https://www.stackoverflow.com',
-            'https://www.reddit.com',
             'https://www.youtube.com',
-            'https://www.nasa.gov',
-            'https://www.bbc.com',
-            'https://www.nationalgeographic.com'
-            // Add more URLs here following the same format:
-            // 'https://www.example.com',
-            // 'https://www.anothersite.com'
+            'https://artfight.net/'
         ];
 
         function getRandomUrl() {
@@ -96,13 +91,14 @@
             window.location.href = randomUrl;
         }
 
-        // Automatically redirect after 3 seconds
+        let countdown = 0;
+
+        // if we want a count-down before redirecting
         setTimeout(() => {
             redirectNow();
-        }, 3000);
+        }, countdown * 1000);
 
         // Optional: Show countdown
-        let countdown = 3;
         const countdownInterval = setInterval(() => {
             countdown--;
             if (countdown > 0) {
