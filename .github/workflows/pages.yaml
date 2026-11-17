@@ -11,9 +11,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: react-web
     steps:
       - uses: actions/checkout@v4
       - name: Configure Git Credentials
@@ -33,7 +30,6 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
-          cache-dependency-path: react-web/pnpm-lock.yaml
 
       - name: Install dependencies
         run: |
@@ -47,7 +43,7 @@ jobs:
         id: deployment
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
-          path: react-web/dist
+          path: dist
       
   # See: https://github.com/actions/upload-pages-artifact
   # Deployment job
