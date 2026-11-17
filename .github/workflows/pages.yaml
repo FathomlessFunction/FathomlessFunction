@@ -9,6 +9,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: react-web
     steps:
       - uses: actions/checkout@v4
       - name: Configure Git Credentials
@@ -31,12 +34,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd ./react-web
           pnpm install
 
       - name: build
         run: |
-          cd ./react-web
           pnpm build
 
       - name: Upload static files as artifact
