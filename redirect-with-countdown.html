@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirect</title>
+    <!-- if we want the redirect page to look pretty -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Random Redirect</h1>
+        <p>Taking you to a random destination...</p>
+        <button onclick="redirectNow()">Go Now</button>
+    </div>
+
+    <script>
+        // ===== CUSTOMIZE YOUR URLS HERE =====
+        // Add, remove, or modify URLs in this array
+        // Each URL should be in quotes and separated by commas
+        const urls = [
+            'https://www.wikipedia.org',
+            'https://www.github.com',
+            'https://www.stackoverflow.com',
+            'https://www.youtube.com',
+            'https://artfight.net/'
+        ];
+
+        function getRandomUrl() {
+            const randomIndex = Math.floor(Math.random() * urls.length);
+            return urls[randomIndex];
+        }
+
+        function redirectNow() {
+            const randomUrl = getRandomUrl();
+            window.location.href = randomUrl;
+        }
+
+        let countdown = 3;
+
+        // if we want a count-down before redirecting
+        setTimeout(() => {
+            redirectNow();
+        }, countdown * 1000);
+
+        // Optional: Show countdown
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            if (countdown > 0) {
+                document.querySelector('p').textContent = `Redirecting in ${countdown} seconds...`;
+            } else {
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

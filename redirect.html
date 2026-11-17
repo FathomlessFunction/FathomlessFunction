@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirect</title>
+</head>
+<body>
+
+    <script>
+        // List of URLs to redirect to randomly
+        const urls = [
+            'https://www.wikipedia.org',
+            'https://www.github.com',
+            'https://www.stackoverflow.com',
+            'https://www.youtube.com',
+            'https://artfight.net/'
+        ];
+
+        function getRandomUrl() {
+            const randomIndex = Math.floor(Math.random() * urls.length);
+            return urls[randomIndex];
+        }
+
+        function redirectNow() {
+            const randomUrl = getRandomUrl();
+            window.location.href = randomUrl;
+        }
+
+        redirectNow();
+        
+    </script>
+</body>
+</html>
