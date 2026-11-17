@@ -40,10 +40,18 @@ jobs:
           pnpm build
       
       # See: https://github.com/actions/upload-pages-artifact
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      path: 'react-web/dist'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        path: 'react-web/dist'
       
       # For publishing material docs to github pages
       # Old and lame, let's use vite instead c:
