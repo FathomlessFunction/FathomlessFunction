@@ -15,15 +15,47 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
+      # Install pnpm
+      # source: https://github.com/pnpm/action-setup
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v4
+          version: 10.24.0
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache 
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: |
+          cd ./react-web
+          pnpm install
+
+      - name: build
+        run: |
+          cd ./react-web
+          pnpm build
+      
+      # See: https://github.com/actions/upload-pages-artifact
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        path: 'react-web/dist'
+      
+      # For publishing material docs to github pages
+      # Old and lame, let's use vite instead c:
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: 3.x
+      # - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      # - uses: actions/cache@v4
+      #   with:
+      #     key: mkdocs-material-${{ env.cache_id }}
+      #     path: .cache 
+      #     restore-keys: |
+      #       mkdocs-material-
+      # - run: pip install mkdocs-material 
+      # - run: mkdocs gh-deploy --force
