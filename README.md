@@ -1,8 +1,20 @@
-### hello! C:
+### About me
+
+- Senior Security Software Dev
+- Bachelor of Comp Sci & Robotics
+- 5 years of industry experience
+
+### I specialise in
+- Infrastructure (kubernetes, helm)
+- Pipeline automation (github actions)
+- Programming (Python, Java, C#)
+
+### I like to dabble in
+- web dev
+- game dev
+- various artsy things 🧡
 
 [![Anurag's GitHub stats](https://github-stats-extended.vercel.app/api?username=fathomlessfunction)](https://github.com/stats-organization/github-stats-extended)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=fathomlessfunction&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
 
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=FathomlessFunction&theme=dark)](https://git.io/streak-stats)
 
