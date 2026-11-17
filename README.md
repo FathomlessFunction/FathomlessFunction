@@ -1,6 +1,6 @@
 ### hello! C:
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=fathomlessfunction&show_icons=true&theme=tokyonight)
+[![Anurag's GitHub stats](https://github-stats-extended.vercel.app/api?username=fathomlessfunction)](https://github.com/stats-organization/github-stats-extended)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=fathomlessfunction&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
 
